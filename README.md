@@ -4,7 +4,7 @@
 
 ![XYZW Logo](public/xiaoyugan.png)
 
-**🎮 咸鱼自动化web平台**
+**🎮 咸鱼之王自动化web平台**
 
 [![Vue 3](https://img.shields.io/badge/Vue-3.4+-4FC08D?style=flat&logo=vue.js&logoColor=white)](https://vuejs.org/)
 [![Vite](https://img.shields.io/badge/Vite-5.0+-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
