@@ -102,27 +102,39 @@ export default defineConfig(async () => {
     autoImportPlugin,
     componentsPlugin,
     vueI18nPlugin,
-    {
-      name: "copy-worker",
-      closeBundle() {
-        try {
-          const src = path.resolve(__dirname, "worker.js");
-          // Cloudflare Pages Advanced Mode expects _worker.js
-          const dest = path.resolve(__dirname, "dist/_worker.js");
-          if (fs.existsSync(src)) {
-            if (!fs.existsSync(path.dirname(dest))) {
-              fs.mkdirSync(path.dirname(dest), { recursive: true });
-            }
-            fs.copyFileSync(src, dest);
-            console.log("\n[copy-worker] worker.js copied to dist/_worker.js");
-          } else {
-            console.warn("\n[copy-worker] worker.js not found at " + src);
-          }
-        } catch (e) {
-          console.error("\n[copy-worker] Error copying worker.js:", e);
-        }
-      },
-    },
+   {
+  name: "copy-worker",
+  closeBundle() {
+    try {
+      const distDir = path.resolve(__dirname, "dist");
+
+      if (!fs.existsSync(distDir)) {
+        fs.mkdirSync(distDir, { recursive: true });
+      }
+
+      // 复制 worker.js -> dist/_worker.js
+      const workerSrc = path.resolve(__dirname, "worker.js");
+      const workerDest = path.resolve(distDir, "_worker.js");
+
+      if (fs.existsSync(workerSrc)) {
+        fs.copyFileSync(workerSrc, workerDest);
+        console.log("[copy-worker] worker.js copied");
+      }
+
+      // 复制 .assetsignore -> dist/.assetsignore
+      const ignoreSrc = path.resolve(__dirname, "public/.assetsignore");
+      const ignoreDest = path.resolve(distDir, ".assetsignore");
+
+      if (fs.existsSync(ignoreSrc)) {
+        fs.copyFileSync(ignoreSrc, ignoreDest);
+        console.log("[copy-worker] .assetsignore copied");
+      }
+
+    } catch (e) {
+      console.error("[copy-worker]", e);
+    }
+  },
+},
   ].filter(Boolean);
 
   return {
