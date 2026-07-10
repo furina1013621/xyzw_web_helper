@@ -4,4 +4,10 @@ compatibility_date = "2023-12-01"
 [pages_build_config]
 build_command = "npm run build"
 destination_dir = "dist"
-pages_build_output_dir = "dist"
+name = "furina"
+main = "dist/_worker.js"
+compatibility_date = "2026-07-10"
+
+[assets]
+directory = "./dist"
+binding = "ASSETS"
