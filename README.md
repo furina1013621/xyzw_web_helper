@@ -12,7 +12,7 @@
 [![WebSocket](https://img.shields.io/badge/WebSocket-BON%20Protocol-FF6B6B?style=flat&logo=websocket&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket)
 [![License](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg?style=flat)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
-基于Vue 3 + Vite的现代化XYZW游戏辅助工具，支持Token管理、WebSocket通信、游戏自动化等功能。
+基于Vue 3 + Vite的现代化的XYZW游戏辅助工具，支持Token管理、WebSocket通信、游戏自动化等功能。
 
 </div>
 
